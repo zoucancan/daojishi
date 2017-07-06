@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #cur{
+      color: red;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <p>距离高考还有:<span id="cur"></span>天</p>
+  <script>
+    window.onload = function(){
+      showTime();
+    }
+    function showTime(){
+      var goalTime = new Date('6/7/2018');
+      // console.log(goalTime);
+      var curTime = new Date();
+      // var num = goalTime - curTime;
+      // console.log(num);
+      var num = goalTime.getTime() - curTime.getTime();
+      var day = parseInt(num/(24*60*60*1000));//时间戳除24h*60m*60s*1000ms;
+      var cur = document.getElementById('cur');
+      cur.innerHTML = day;
+      setTimeout(showTime,24*60*60*1000);
+    }
+
+  </script>
+</body>
+</html>
